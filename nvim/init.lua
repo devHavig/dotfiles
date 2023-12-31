@@ -45,10 +45,14 @@ require('lazy').setup({
     end,
   },
 
-  -- NOTE: First, some plugins that don't require any configuration
-
   -- auto-pairs
+  {
     'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {}
+  },
+
+  -- NOTE: First, some plugins that don't require any configuration
 
   -- Git related plugins
   'tpope/vim-fugitive',
