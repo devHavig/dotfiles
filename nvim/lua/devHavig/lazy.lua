@@ -48,11 +48,24 @@ require("lazy").setup({
       null_ls.setup({
         sources = {
           null_ls.builtins.formatting.stylua,
+          null_ls.builtins.formatting.prettier,
+          null_ls.builtins.formatting.black,
+          null_ls.builtins.diagnostics.eslint_d,
         },
       })
     end,
   },
 
+  -- Dashboard splash screen
+  {
+    "goolord/alpha-nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("alpha").setup(require("alpha.themes.startify").config)
+    end,
+  },
+
+  -- File tree
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
