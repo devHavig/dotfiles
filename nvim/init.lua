@@ -2,7 +2,7 @@ require('devHavig.lazy')
 require('devHavig.lsp')
 require('devHavig.options')
 require('devHavig.keymap')
-print('Welcome Master From New nvim')
+print('Welcome Master 👁️')
 
 -- Set <space> as the leader key
 vim.g.mapleader = ' '
