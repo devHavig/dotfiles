@@ -1,7 +1,7 @@
 local options = {
     guicursor = "",
     mouse = 'a',
-    tabstop = 1,
+    tabstop = 4,
     shiftwidth = 4,
     softtabstop = 4,
     expandtab = true,
@@ -42,4 +42,5 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure you terminal supports this
 vim.o.termguicolors = true
 
-
+-- Append
+vim.opt.isfname:append("@-@")
