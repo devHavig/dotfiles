@@ -4,3 +4,4 @@ require('devHavig.options')
 require('devHavig.keymap')
 
 require('devHavig.plugins.telescope')
+require('devHavig.plugins.treesitter')
