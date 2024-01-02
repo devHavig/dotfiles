@@ -14,15 +14,42 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
   -- Theme
- {
+  {
     "catppuccin/nvim",
+      lazy = false,
       name = "catppuccin",
       priority = 1000,
       config = function()
-        -- load colorscheme here
-        vim.cmd.colorscheme "catppuccin-mocha"
-    end,
+      vim.cmd.colorscheme "catppuccin-macchiato" -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+    end
   },
+
+  -- Fuzzy Finder (files, lsp, etc)
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+        cond = function()
+          return vim.fn.executable 'make' == 1
+        end,
+      },
+    },
+  },
+
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    }
+},
 
   {
   "folke/which-key.nvim",
@@ -37,27 +64,6 @@ require("lazy").setup({
     -- refer to the configuration section below
   }
 },
-
-  -- Fuzzy Finder (files, lsp, etc)
-  {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-      -- Only load if `make` is available. Make sure you have the system
-      -- requirements installed.
-      {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        -- NOTE: If you are having trouble with this installation,
-        --       refer to the README for telescope-fzf-native for more instructions.
-        build = 'make',
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
-      },
-    },
-  },
 
   -- auto-pairs
   {
@@ -150,16 +156,12 @@ require("lazy").setup({
   },
 
  {
-    -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {
       options = {
         icons_enabled = true,
         theme = 'horizon',
-        component_separators = '|',
-        section_separators = '',
       },
     },
   },

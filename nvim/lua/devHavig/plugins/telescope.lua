@@ -15,4 +15,5 @@ require('telescope').setup {
 pcall(require('telescope').load_extension, 'fzf')
 
 vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<C-h>', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })

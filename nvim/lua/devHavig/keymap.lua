@@ -24,3 +24,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- Neotree keymaps
+vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {})
