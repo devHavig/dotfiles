@@ -1,7 +1,4 @@
-require('devHavig.lazy')
-require('devHavig.lsp')
-require('devHavig.options')
-require('devHavig.keymap')
+require('devHavig.init')
 print('Welcome Master 👁️')
 
 -- Set <space> as the leader key
