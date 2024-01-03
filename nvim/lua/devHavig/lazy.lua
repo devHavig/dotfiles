@@ -13,14 +13,25 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
-  -- Theme
+  -- Themes
+  {
+    "loctvl842/monokai-pro.nvim",
+    config = function()
+      vim.cmd.colorscheme("monokai-pro")
+    end,
+  },
+
   {
     "catppuccin/nvim",
     lazy = false,
     name = "catppuccin",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("catppuccin-macchiato") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+      --   vim.cmd.colorscheme("catppuccin-macchiato")
+      -- catppuccin-latte
+      -- catppuccin-frappe
+      -- catppuccin-macchiato
+      -- catppuccin-moch
     end,
   },
 
@@ -194,6 +205,7 @@ require("lazy").setup({
       options = {
         icons_enabled = true,
         theme = "horizon",
+        -- theme = "monokai-pro",
       },
     },
   },
