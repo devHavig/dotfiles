@@ -11,15 +11,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- require("lazy").setup("devHavig.plugins")
 require("lazy").setup({
       "nvim-lua/plenary.nvim",
-
-  -- auto-pairs
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    opts = {},
-  },
 
   -- Git related plugins
   "tpope/vim-fugitive",
@@ -27,6 +21,13 @@ require("lazy").setup({
 
   -- Detect tabstop and shiftwidth automatically
   "tpope/vim-sleuth",
+
+  -- auto-pairs
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {},
+  },
 
   -- [[Themes]]
   {
@@ -108,18 +109,6 @@ require("lazy").setup({
     config = function()
       require("alpha").setup(require("alpha.themes.startify").config)
     end,
-  },
-
-  -- File tree
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    },
   },
 
   -- Useful plugin to show you pending keybinds.
