@@ -14,7 +14,21 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
       "nvim-lua/plenary.nvim",
 
-  -- Themes
+  -- auto-pairs
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {},
+  },
+
+  -- Git related plugins
+  "tpope/vim-fugitive",
+  "tpope/vim-rhubarb",
+
+  -- Detect tabstop and shiftwidth automatically
+  "tpope/vim-sleuth",
+
+  -- [[Themes]]
   {
     "rose-pine/neovim",
     name = "rose-pine",
@@ -49,6 +63,16 @@ require("lazy").setup({
     },
   },
 
+  -- Highlight, edit, and navigate code
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+    build = ":TSUpdate",
+  },
+
+  -- Formatter
   {
     "nvimtools/none-ls.nvim",
     config = function()
@@ -63,6 +87,18 @@ require("lazy").setup({
         },
       })
     end,
+  },
+
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      options = {
+        icons_enabled = true,
+        -- theme = "horizon",
+        theme = "monokai-pro",
+      },
+    },
   },
 
   -- Dashboard splash screen
@@ -86,6 +122,7 @@ require("lazy").setup({
     },
   },
 
+  -- Useful plugin to show you pending keybinds.
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -100,20 +137,6 @@ require("lazy").setup({
       -- refer to the configuration section below
     },
   },
-
-  -- auto-pairs
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    opts = {},
-  },
-
-  -- Git related plugins
-  "tpope/vim-fugitive",
-  "tpope/vim-rhubarb",
-
-  -- Detect tabstop and shiftwidth automatically
-  "tpope/vim-sleuth",
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -150,8 +173,6 @@ require("lazy").setup({
     },
   },
 
-  -- Useful plugin to show you pending keybinds.
-  { "folke/which-key.nvim",  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     "lewis6991/gitsigns.nvim",
@@ -197,18 +218,6 @@ require("lazy").setup({
   },
 
   {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      options = {
-        icons_enabled = true,
-        -- theme = "horizon",
-        theme = "monokai-pro",
-      },
-    },
-  },
-
-  {
     -- Add indentation guides even on blank lines
     "lukas-reineke/indent-blankline.nvim",
     -- Enable `lukas-reineke/indent-blankline.nvim`
@@ -219,13 +228,4 @@ require("lazy").setup({
 
   -- "gc" to comment visual regions/lines
   { "numToStr/Comment.nvim", opts = {} },
-
-  {
-    -- Highlight, edit, and navigate code
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-    },
-    build = ":TSUpdate",
-  },
 }, {})
