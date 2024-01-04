@@ -16,9 +16,8 @@ require("lazy").setup({
   -- Themes
   {
     "loctvl842/monokai-pro.nvim",
-    config = function()
-      vim.cmd.colorscheme("monokai-pro")
-    end,
+    name = "monokai-pro",
+    priority = 1000,
   },
 
   {
@@ -26,13 +25,6 @@ require("lazy").setup({
     lazy = false,
     name = "catppuccin",
     priority = 1000,
-    config = function()
-      --   vim.cmd.colorscheme("catppuccin-macchiato")
-      -- catppuccin-latte
-      -- catppuccin-frappe
-      -- catppuccin-macchiato
-      -- catppuccin-moch
-    end,
   },
 
   -- Fuzzy Finder (files, lsp, etc)
@@ -204,8 +196,8 @@ require("lazy").setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = "horizon",
-        -- theme = "monokai-pro",
+        -- theme = "horizon",
+        theme = "monokai-pro",
       },
     },
   },
