@@ -12,8 +12,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+      "nvim-lua/plenary.nvim",
 
   -- Themes
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    priority = 1000,
+  },
+
   {
     "loctvl842/monokai-pro.nvim",
     name = "monokai-pro",
@@ -32,7 +39,6 @@ require("lazy").setup({
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     dependencies = {
-      "nvim-lua/plenary.nvim",
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",

@@ -7,7 +7,7 @@ vim.g.maplocalleader = ' '
 
 -- [[THEMES]]
 
--- Catpuccinn
+-- catppuccin
 --   vim.cmd.colorscheme("catppuccin-macchiato")
       -- catppuccin-latte
       -- catppuccin-frappe
@@ -16,3 +16,6 @@ vim.g.maplocalleader = ' '
 
 -- monokai-pro
 vim.cmd.colorscheme("monokai-pro")
+
+-- rose pine
+-- vim.cmd.colorscheme("rose-pine")
